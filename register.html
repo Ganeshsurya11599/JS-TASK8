@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REGISTER FORM</title>
+	<meta charset="utf-8">
+	   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body>
+	<br>
+	<br>
+<div class="container">
+	<br>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<header>
+				<h3>
+					<span>R</span>
+					<span>E</span>
+					<span>G</span>
+					<span>I</span>
+					<span>S</span>
+					<span>T</span>
+					<span>E</span>
+					<span>R</span>
+					<span>-</span>
+					<span>F</span>
+					<span>O</span>
+					<span>R</span>
+					<span>M</span>
+				</h3>
+			</header>
+				<br>
+				<br>
+				<br>
+				<form name="myForm" onsubmit="validateForm()" method="post">
+					<input type="text" placeholder="Name" name="fname" required id="username">
+					<br>
+					<br>
+					<br>
+					<input type="text" placeholder="Email-Id" id="email" name="email" required>
+					<br>
+					<br>
+					<br>
+					<input type="password" placeholder="Password" class="input" id="password" required>
+					<i class='fas fa-eye icon1' onclick="showpw()"></i>
+					<br>
+					<br>
+					<br>
+					<button onclick="register()">Log-in</button>
+					<br>
+					<p>Already have an acount <a href="index.html">Login?</a></p>
+				</form>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+<br>
+<br>
+<br>
+<br>
+
+<script type="text/javascript">
+
+		function showpw(){
+		var pw=document.getElementById('password');
+		if(pw.type=="text"){
+			pw.type="password";
+		}
+		else
+		{
+			pw.type="text";
+		}
+	}
+
+	var user=[];
+	function register() {
+		var username = document.getElementById('username').value;
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var data = {
+				username:username,
+				email:email,
+				password:password
+		}
+		console.log(data);
+		user.push(data);
+		console.log(user)
+		localStorage.setItem('userdetail',JSON.stringify(user));
+		if (username=='') {
+			alert('Enter the Name')
+		}
+		else if (email=='') {
+			alert('Enter the Email')
+		}
+		else if (password=='') {
+			alert('Enter the password')
+		}
+		else{
+		alert('REGISTER SUCCESSFULLLY')
+		location.replace("index.html")
+		}
+		
+	}
+</script>
+</body>
+</html>
